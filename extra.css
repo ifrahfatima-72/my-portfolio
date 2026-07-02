@@ -1,0 +1,125 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700;800;900&display=swap');
+@import "tailwindcss";
+/* Import Premium Google Fonts */
+/* @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700;800;900&display=swap'); */
+@theme {
+  --font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-display: 'Outfit', sans-serif;
+  --color-obsidian: #FFFFFF;
+  --color-obsidian-light: #FFF5FA;
+  --color-card-dark: rgba(255, 105, 180, 0.06);
+  --color-card-border: rgba(255, 105, 180, 0.18);
+  --color-primary-purple: #FF69B4;
+  --color-primary-blue: #069494;
+  --color-accent-cyan: #00F0FF;
+  --animate-pulse-slow: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  --animate-float: float 6s ease-in-out infinite;
+  --animate-glow: glow 3s ease-in-out infinite alternate;
+}
+/* Custom Keyframe Animations */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+@keyframes glow {
+  0% { box-shadow: 0 0 10px rgba(255, 105, 180, 0.25), 0 0 20px rgba(6, 148, 148, 0.25); }
+  100% { box-shadow: 0 0 25px rgba(255, 105, 180, 0.5), 0 0 35px rgba(6, 148, 148, 0.5); }
+}
+/* Global Reset & Base Styles */
+html {
+scroll-behavior: smooth;
+scroll-padding-top: 5rem;
+background-color: var(--color-obsidian);
+color: #1f2937;
+font-family: var(--font-sans);
+overflow-x: hidden;
+}
+body {
+margin: 0;
+padding: 0;
+background-color: var(--color-obsidian);
+overflow-x: hidden;
+}
+/* Custom High-Fidelity Glassmorphism Utility */
+.glass-card {
+background: rgb(161, 161, 161);
+backdrop-filter: blur(16px);
+-webkit-backdrop-filter: blur(16px);
+border: 1px solid rgba(255, 105, 180, 0.18);
+box-shadow: 0 8px 32px 0 rgba(255, 105, 180, 0.12);
+transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.glass-card:hover {
+border-color: rgba(255, 105, 180, 0.45);
+box-shadow: 0 10px 40px 0 rgba(255, 105, 180, 0.2);
+}
+/* Glassmorphism Header */
+.glass-header {
+background: rgba(255, 255, 255, 0.75);
+backdrop-filter: blur(12px);
+-webkit-backdrop-filter: blur(12px);
+border-bottom: 1px solid rgba(255, 105, 180, 0.12);
+}
+/* Modern Gradient Text */
+.gradient-text {
+background: linear-gradient(135deg, #FF69B4 0%, #069494 50%, #00F0FF 100%);
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+background-clip: text;
+}
+.gradient-text-alt {
+background: linear-gradient(135deg, #FF69B4 0%, #FF8FC8 50%, #069494 100%);
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+background-clip: text;
+}
+/* Premium Custom Scrollbar */
+::-webkit-scrollbar {
+width: 8px;
+}
+::-webkit-scrollbar-track {
+background: #FFFFFF;
+}
+::-webkit-scrollbar-thumb {
+background: linear-gradient(180deg, #FF69B4, #069494);
+border-radius: 9999px;
+border: 2px solid #FFFFFF;
+}
+::-webkit-scrollbar-thumb:hover {
+background: linear-gradient(180deg, #FF8FC8, #06b6b6);
+}
+/* Glowing Accent Ring on Focus */
+input:focus, textarea:focus {
+outline: none;
+border-color: #FF69B4;
+box-shadow: 0 0 0 3px rgba(255, 105, 180, 0.25);
+}
+/* Grid Background Pattern overlay */
+.bg-grid-pattern {
+background-size: 40px 40px;
+background-image: 
+    linear-gradient(to right, rgba(255, 105, 180, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 105, 180, 0.05) 1px, transparent 1px);
+}
+.bg-radial-gradient {
+background: radial-gradient(circle 800px at 50% 200px, rgba(255, 105, 180, 0.1), transparent 80%);
+}
+/* Animated Cursor for typing effect */
+.typing-cursor::after {
+content: '|';
+animation: blink 0.8s infinite;
+color: #069494;
+font-weight: 400;
+margin-left: 2px;
+}
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+/* Custom interactive animation classes */
+.float-element {
+animation: float 6s ease-in-out infinite;
+}
+.hover-glow:hover {
+animation: glow 1.5s ease-in-out infinite alternate;
+}
